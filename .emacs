@@ -26,7 +26,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
+    (git-gutter projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -54,6 +54,7 @@
 (global-flycheck-mode) ;; Check errors for language
 (projectile-mode) ;; Add project management support
 (ggtags-mode) ;; Project tags declaration
+(global-git-gutter-mode) ;; Enable git gutter mode
 (setq projectile-switch-project-action 'neotree-projectile-action) ;; Open project node in neotree if project opens
 (global-company-mode) ;; Auto completion
 (setq company-dabbrev-downcase nil) ;; Fix for company autocompletion downcase
