@@ -53,12 +53,16 @@
 ;; Development enhancements
 (global-flycheck-mode) ;; Check errors for language
 (projectile-mode) ;; Add project management support
-(ggtags-mode) ;; Project tags declaration
 (global-git-gutter-mode) ;; Enable git gutter mode
 (setq projectile-switch-project-action 'neotree-projectile-action) ;; Open project node in neotree if project opens
 (global-company-mode) ;; Auto completion
 (setq company-dabbrev-downcase nil) ;; Fix for company autocompletion downcase
+(ggtags-mode) ;; Project tags declaration
 (require 'helm-config)
+
+;; Language specific setup
+;; Ruby
+(add-hook 'ruby-mode-hook 'robe-mode)
 
 ;; Personal enhancements
 (add-hook 'after-save-hook 'whitespace-cleanup) ;; Remove extra whitespace after saving files
