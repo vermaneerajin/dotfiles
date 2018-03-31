@@ -54,7 +54,7 @@
 (global-flycheck-mode) ;; Check errors for language
 (projectile-mode) ;; Add project management support
 (ggtags-mode) ;; Project tags declaration
-(global-git-gutter-mode) ;; Enable git gutter mode
+(global-git-gutter-mode +1) ;; Enable git gutter mode
 (setq projectile-switch-project-action 'neotree-projectile-action) ;; Open project node in neotree if project opens
 (global-company-mode) ;; Auto completion
 (setq company-dabbrev-downcase nil) ;; Fix for company autocompletion downcase
