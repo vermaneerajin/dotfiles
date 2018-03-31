@@ -7,14 +7,17 @@
 ;; You may delete these explanatory comments.
 
 ;;; Code:
-(package-initialize)
-
 (require 'package)
-
-;; Adding melpa packages
-(add-to-list 'package-archives
-     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+		    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
+(package-initialize)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -23,7 +26,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode helm-projectile robe rubocop ruby-compilation ruby-electric ggtags flycheck helm magit neotree projectile chess))))
+    (projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -35,23 +38,26 @@
 (setq inhibit-startup-screen t) ;; Don't show emacs default startup screen
 (tool-bar-mode 0) ;; Don't show toolbar
 (menu-bar-mode 0) ;; Don't show menubar
-
-;; Keep neotree open on every new emacs instance
-(neotree-show)
+(neotree) ;; Keep neotree open on every new emacs instance
+(setq neo-autorefresh nil) ;; Disable neo node auto refresh
 
 ;; Editor beauty
-(global-linum-mode t) ;; Show line number
-(global-whitespace-mode t) ;; Show whitespace characters
-(global-hl-line-mode t) ;; Highlight current line
-(require 'fill-column-indicator) ;; Show line margin
-(show-paren-mode t) ;; Show matchin brackets
+(global-linum-mode) ;; Show line number
+(global-whitespace-mode) ;; Show whitespace characters
+(global-hl-line-mode) ;; Highlight current line
+(show-paren-mode) ;; Show matchin brackets
 (setq whitespace-line 0) ;; Disable whitespace showing long line with different formatting
+(require 'fill-column-indicator) ;; Show right margin line
+(add-hook 'after-change-major-mode-hook 'fci-mode)
 
 ;; Development enhancements
-(global-flycheck-mode t) ;; Check errors for language
-(projectile-mode t) ;; Add project management support
-(global-company-mode t) ;; Auto completion
+(global-flycheck-mode) ;; Check errors for language
+(projectile-mode) ;; Add project management support
+(ggtags-mode) ;; Project tags declaration
+(setq projectile-switch-project-action 'neotree-projectile-action) ;; Open project node in neotree if project opens
+(global-company-mode) ;; Auto completion
 (setq company-dabbrev-downcase nil) ;; Fix for company autocompletion downcase
+(require 'helm-config)
 
 ;; Personal enhancements
 (add-hook 'after-save-hook 'whitespace-cleanup) ;; Remove extra whitespace after saving files
