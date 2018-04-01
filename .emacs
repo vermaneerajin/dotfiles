@@ -57,8 +57,12 @@
 (setq projectile-switch-project-action 'neotree-projectile-action) ;; Open project node in neotree if project opens
 (global-company-mode) ;; Auto completion
 (setq company-dabbrev-downcase nil) ;; Fix for company autocompletion downcase
-(ggtags-mode) ;; Project tags declaration
 (require 'helm-config)
+
+;; Make ggtags mode global
+(define-globalized-minor-mode my-ggtags-global-mode ggtags-mode
+  (lambda () (ggtags-mode 1)))
+(my-ggtags-global-mode) ;; Project tags declartion
 
 ;; Language specific setup
 ;; Ruby
