@@ -9,7 +9,7 @@
 ;;; Code:
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-		    (not (gnutls-available-p))))
+                    (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
   ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
   (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
@@ -26,7 +26,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (git-gutter projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
+    (nlinum git-gutter projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -42,7 +42,7 @@
 (setq neo-autorefresh nil) ;; Disable neo node auto refresh
 
 ;; Editor beauty
-(global-linum-mode) ;; Show line number
+(global-nlinum-mode) ;; Show line number
 (global-whitespace-mode) ;; Show whitespace characters
 (global-hl-line-mode) ;; Highlight current line
 (show-paren-mode) ;; Show matchin brackets
@@ -70,6 +70,10 @@
 
 ;; Personal enhancements
 (add-hook 'after-save-hook 'whitespace-cleanup) ;; Remove extra whitespace after saving files
+(setq-default indent-tabs-mode nil)
+
+;; Performance Improvement
+(setq auto-window-vscroll nil)
 
 ;; Extra configurations
 
@@ -82,6 +86,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 (provide '.emacs)
 ;;; .emacs ends here
