@@ -26,7 +26,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (nlinum git-gutter projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
+    (git-gutter projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -42,7 +42,7 @@
 (setq neo-autorefresh nil) ;; Disable neo node auto refresh
 
 ;; Editor beauty
-(global-nlinum-mode) ;; Show line number
+(global-linum-mode) ;; Show line number
 (global-whitespace-mode) ;; Show whitespace characters
 (global-hl-line-mode) ;; Highlight current line
 (show-paren-mode) ;; Show matchin brackets
