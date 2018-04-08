@@ -54,7 +54,7 @@
 (global-flycheck-mode) ;; Check errors for language
 (projectile-mode) ;; Add project management support
 (global-diff-hl-mode) ;; Enable diff hl mode to show git changes in buffer
-(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;; Refresh on magit post
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh) ;; Refresh on magit post refresh hook
 (setq projectile-switch-project-action 'neotree-projectile-action) ;; Open project node in neotree if project opens
 (global-company-mode) ;; Auto completion
 (setq company-dabbrev-downcase nil) ;; Fix for company autocompletion downcase
