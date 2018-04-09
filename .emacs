@@ -26,7 +26,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (nlinum git-gutter projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
+    (nlinum git-gutter projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess)))
+ '(web-mode-enable-auto-indentation t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
