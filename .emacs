@@ -71,6 +71,7 @@
 
 ;; Personal enhancements
 (add-hook 'after-save-hook 'whitespace-cleanup) ;; Remove extra whitespace after saving files
+(global-auto-revert-mode t) ;; Enable auto update of all buffer if file changed on disk
 (setq-default indent-tabs-mode nil)
 
 ;; Performance Improvement
