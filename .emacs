@@ -26,7 +26,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (diff-hl git-gutter projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
+    (diff-hl projectile helm fill-column-indicator company markdown-mode org go-mode go-playground gorepl-mode gotest php-mode phpunit web-beautify web-mode robe rubocop ruby-compilation ruby-electric ggtags flycheck magit neotree chess))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -39,7 +39,6 @@
 (tool-bar-mode 0) ;; Don't show toolbar
 (menu-bar-mode 0) ;; Don't show menubar
 (neotree) ;; Keep neotree open on every new emacs instance
-(setq neo-autorefresh nil) ;; Disable neo node auto refresh
 
 ;; Editor beauty
 (global-linum-mode) ;; Show line number
