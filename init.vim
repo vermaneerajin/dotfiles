@@ -94,6 +94,7 @@ let g:which_key_map['w'] = {
 let g:which_key_map['t'] = {
       \ 'name' : '+toggle' ,
       \ 'n' : [':set number! <bar> :set relativenumber!'     , 'line-number'],
+      \ 'w' : [':set list!', 'whitespace'],
       \}
 
 let g:which_key_map['d'] = {
@@ -129,6 +130,15 @@ let g:which_key_map['i'] = {
     \ 'r' : [':CocListResume', 'resume'],
     \}
 
+let g:which_key_map['p'] = {
+    \ 'name' : '+project' ,
+    \ 'e' : [':CocCommand explorer', 'explorer'],
+    \ 'f' : [':CocList files', 'find files'],
+    \}
+
+
+map <tab> :bn<cr>
+map <S-tab> :bp<cr>
 
 nnoremap <silent> <leader>K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
