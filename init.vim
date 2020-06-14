@@ -88,13 +88,13 @@ let g:which_key_map['w'] = {
       \ '=' : ['<C-W>='     , 'balance-window']        ,
       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-      \ '?' : ['Windows'    , 'fzf-window']           ,
       \ } 
 
 let g:which_key_map['t'] = {
       \ 'name' : '+toggle' ,
       \ 'n' : [':set number! <bar> :set relativenumber!'     , 'line-number'],
       \ 'w' : [':set list!', 'whitespace'],
+      \ 'h' : [':set hlsearch!', 'highlight'],
       \}
 
 let g:which_key_map['d'] = {
@@ -148,6 +148,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+let g:which_key_map['K'] = "show-documentation"
+
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
