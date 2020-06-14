@@ -136,6 +136,13 @@ let g:which_key_map['p'] = {
     \ 'f' : [':CocList files', 'find files'],
     \}
 
+let g:which_key_map['b'] = {
+    \ 'name' : '+buffers' ,
+    \ 'l' : [':ls', 'list'],
+    \ 'd' : [':bd', 'drop'],
+    \ 'n' : [':bn', 'next'],
+    \ 'p' : [':bp', 'previous'],
+    \}
 
 map <tab> :bn<cr>
 map <S-tab> :bp<cr>
