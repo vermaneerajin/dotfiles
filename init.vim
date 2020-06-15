@@ -5,6 +5,7 @@ echo "¯\\_(ツ)_/¯"
 set number
 set relativenumber
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 set list
 set listchars=tab:→\→,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
@@ -106,11 +107,17 @@ let g:which_key_map['d'] = {
     \}
 
 let g:which_key_map['g'] = {
-    \ 'name' : '+goto' ,
-    \ 'd' : ['<Plug>(coc-definition)<cr>', 'definition'],
-    \ 't' : ['<Plug>(coc-type-definition)<cr>', 'type-definition'],
-    \ 'r' : ['<Plug>(coc-references)<cr>', 'references'],
-    \ 'i' : ['<Plug>(coc-implementation)<cr>', 'implementation'],
+    \ 'name' : '+goto/git' ,
+    \ 'd' : ['<Plug>(coc-definition)<cr>', 'goto-definition'],
+    \ 't' : ['<Plug>(coc-type-definition)<cr>', 'goto-type-definition'],
+    \ 'r' : ['<Plug>(coc-references)<cr>', 'goto-references'],
+    \ 'i' : ['<Plug>(coc-implementation)<cr>', 'goto-implementation'],
+    \ 'p' : ['<Plug>(coc-git-prevchunk)', 'git-previous-chunk'],
+    \ 'n' : ['<Plug>(coc-git-nextchunk)', 'git-next-chunk'],
+    \ 'o' : ['<Plug>(coc-git-chunkinfo)', 'git-chunk-info'],
+    \ 'u' : [':CocCommand git.chunkUndo', 'git-chunk-undo'],
+    \ 'c' : [':CocCommand git.diffCached', 'git-diff-cached'],
+    \ 's' : [':CocCommand git.chunkStage', 'git-chunk-stage'],
     \}
 
 let g:which_key_map['s'] = {
@@ -121,6 +128,7 @@ let g:which_key_map['s'] = {
 let g:which_key_map['f'] = {
     \ 'name' : '+file' ,
     \ 'o' : [':CocList outline', 'outline'],
+    \ 'v' : {'name' : '+vim', 'e' : [':vsplit $MYVIMRC', 'edit'], 's' : [':source $MYVIMRC' , 'source']}
     \}
 
 let g:which_key_map['i'] = {
@@ -134,6 +142,7 @@ let g:which_key_map['p'] = {
     \ 'name' : '+project' ,
     \ 'e' : [':CocCommand explorer', 'explorer'],
     \ 'f' : [':CocList files', 'find files'],
+    \ 's' : [':CocList grep', 'search'],
     \}
 
 let g:which_key_map['b'] = {
@@ -143,6 +152,15 @@ let g:which_key_map['b'] = {
     \ 'n' : [':bn', 'next'],
     \ 'p' : [':bp', 'previous'],
     \}
+
+let g:which_key_map['b'] = {
+    \ 'name' : '+buffers' ,
+    \ 'l' : [':ls', 'list'],
+    \ 'd' : [':bd', 'drop'],
+    \ 'n' : [':bn', 'next'],
+    \ 'p' : [':bp', 'previous'],
+    \}
+
 
 map <tab> :bn<cr>
 map <S-tab> :bp<cr>
@@ -172,6 +190,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+autocmd User CocGitStatusChange {command}
 
 call plug#begin()
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
@@ -179,4 +198,5 @@ Plug 'neoclide/coc.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
