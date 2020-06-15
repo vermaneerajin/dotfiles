@@ -190,7 +190,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-autocmd User CocGitStatusChange {command}
 
 call plug#begin()
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
