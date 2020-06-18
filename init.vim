@@ -176,6 +176,10 @@ endfunction
 
 let g:which_key_map['K'] = "show-documentation"
 
+" Move cursor to start and end of line
+nnoremap H 0
+nnoremap L $
+
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -190,6 +194,12 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Abbreviations
+iabbrev @@ verma.neeraj.in@gmail.com
+iabbrev teh the
+iabbrev waht what
+iabbrev fnp public function() {}
 
 call plug#begin()
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
