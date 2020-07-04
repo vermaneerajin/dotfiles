@@ -143,6 +143,8 @@ let g:which_key_map['p'] = {
     \ 'e' : [':CocCommand explorer', 'explorer'],
     \ 'f' : [':CocList files', 'find files'],
     \ 's' : [':CocList grep', 'search'],
+    \ 'p' : [':SSave', 'Save project'],
+    \ 'l' : [':SLoad', 'Load project']
     \}
 
 let g:which_key_map['b'] = {
@@ -159,6 +161,11 @@ let g:which_key_map['b'] = {
     \ 'd' : [':bd', 'drop'],
     \ 'n' : [':bn', 'next'],
     \ 'p' : [':bp', 'previous'],
+    \}
+
+let g:which_key_map['q'] = {
+    \ 'name' : '+quick' ,
+    \ 'n' : [':e ~/Documents/vim/quicknotes.txt', 'notes'],
     \}
 
 
@@ -180,7 +187,6 @@ let g:which_key_map['K'] = "show-documentation"
 nnoremap H 0
 nnoremap L $
 
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
@@ -200,6 +206,32 @@ iabbrev @@ verma.neeraj.in@gmail.com
 iabbrev teh the
 iabbrev waht what
 iabbrev fnp public function() {}
+iabbrev fnpv private function() {}
+
+" Startify screen
+" " returns all modified files of the current git repo
+" `2>/dev/null` makes the command fail quietly, so that when we are not
+" in a git repo, the list will be empty
+function! s:gitModified()
+    let files = systemlist('git ls-files -m 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+" same as above, but show untracked files, honouring .gitignore
+function! s:gitUntracked()
+    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+let g:startify_lists = [
+        \ { 'type': 'sessions',  'header': ['   Projects']       },
+        \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
+        \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
+        \ { 'type': 'files',     'header': ['   Files']            },
+        \ { 'type': 'dir',       'header': ['   Current directory '. getcwd()] },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ ]
 
 call plug#begin()
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
