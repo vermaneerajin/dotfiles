@@ -1,14 +1,16 @@
 " Welcome message
-echo "¯\\_(ツ)_/¯"
+echo "¬Ø\\_(„ÉÑ)_/¬Ø"
 
 " editor basic setup
 set number
 set relativenumber
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
 set list
-set listchars=tab:→\→,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+set listchars=tab:‚Üí\‚Üí,space:¬∑,nbsp:‚ê£,trail:‚Ä¢,eol:¬∂,precedes:¬´,extends:¬ª
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Coc settings
@@ -29,7 +31,7 @@ else
   set signcolumn=yes
 endif
 " Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" NOTE: Use command ':verbose imap <tab>' to mae sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -56,6 +58,7 @@ endif
 
 " color scheme
 colorscheme gruvbox
+set background=dark
 
 " leader and keybindings
 let g:mapleader = "\<Space>" 
@@ -118,6 +121,8 @@ let g:which_key_map['g'] = {
     \ 'u' : [':CocCommand git.chunkUndo', 'git-chunk-undo'],
     \ 'c' : [':CocCommand git.diffCached', 'git-diff-cached'],
     \ 's' : [':CocCommand git.chunkStage', 'git-chunk-stage'],
+    \ 'b' : [':Git blame', 'Git blame'],
+    \ 'D' : [':Git diff', 'Git difference'],
     \}
 
 let g:which_key_map['s'] = {
@@ -153,14 +158,8 @@ let g:which_key_map['b'] = {
     \ 'd' : [':bd', 'drop'],
     \ 'n' : [':bn', 'next'],
     \ 'p' : [':bp', 'previous'],
-    \}
-
-let g:which_key_map['b'] = {
-    \ 'name' : '+buffers' ,
-    \ 'l' : [':ls', 'list'],
-    \ 'd' : [':bd', 'drop'],
-    \ 'n' : [':bn', 'next'],
-    \ 'p' : [':bp', 'previous'],
+    \ 'o': [':%bd|e#|bd#', 'drop others'],
+    \ 'a': [':%bd', 'drop all'],
     \}
 
 let g:which_key_map['q'] = {
@@ -195,11 +194,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Abbreviations
 iabbrev @@ verma.neeraj.in@gmail.com
@@ -240,4 +234,6 @@ Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'tpope/vim-fugitive'
 call plug#end()
