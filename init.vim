@@ -57,8 +57,8 @@ else
 endif
 
 " color scheme
-colorscheme gruvbox
-set background=dark
+colorscheme PaperColor
+set background=light
 
 " leader and keybindings
 let g:mapleader = "\<Space>" 
@@ -124,13 +124,14 @@ let g:which_key_map['g'] = {
     \ 'o' : ['<Plug>(coc-git-chunkinfo)', 'git-chunk-info'],
     \ 'u' : [':CocCommand git.chunkUndo', 'git-chunk-undo'],
     \ 'D' : [':CocCommand git.diffCached', 'git-diff-cached'],
-    \ 's' : [':CocCommand git.chunkStage', 'git-chunk-stage'],
+    \ 'S' : [':CocCommand git.chunkStage', 'git-chunk-stage'],
     \ 'B' : [':Git blame', 'Git blame'],
     \ 'd' : [':Git diff', 'Git difference'],
     \ 'C' : [':Git checkout', 'Git checkout'],
     \ 'b' : [':Git branch', 'Git branch'],
     \ 'a' : [':Git add', 'Git add'],
     \ 'c' : [':Git commit', 'Git commit'],
+    \ 's' : [':Gstatus', 'Git status'],
     \}
 
 let g:which_key_map['s'] = {
