@@ -109,20 +109,28 @@ let g:which_key_map['d'] = {
     \ 'f' : ['<Plug>(coc-fix-current)<cr>', 'fix-current-line'],
     \}
 
-let g:which_key_map['g'] = {
-    \ 'name' : '+goto/git' ,
+let g:which_key_map['j'] = {
+    \ 'name' : '+jump/goto' ,
     \ 'd' : ['<Plug>(coc-definition)<cr>', 'goto-definition'],
     \ 't' : ['<Plug>(coc-type-definition)<cr>', 'goto-type-definition'],
     \ 'r' : ['<Plug>(coc-references)<cr>', 'goto-references'],
     \ 'i' : ['<Plug>(coc-implementation)<cr>', 'goto-implementation'],
+    \}
+
+let g:which_key_map['g'] = {
+    \ 'name' : '+git' ,
     \ 'p' : ['<Plug>(coc-git-prevchunk)', 'git-previous-chunk'],
     \ 'n' : ['<Plug>(coc-git-nextchunk)', 'git-next-chunk'],
     \ 'o' : ['<Plug>(coc-git-chunkinfo)', 'git-chunk-info'],
     \ 'u' : [':CocCommand git.chunkUndo', 'git-chunk-undo'],
-    \ 'c' : [':CocCommand git.diffCached', 'git-diff-cached'],
+    \ 'D' : [':CocCommand git.diffCached', 'git-diff-cached'],
     \ 's' : [':CocCommand git.chunkStage', 'git-chunk-stage'],
-    \ 'b' : [':Git blame', 'Git blame'],
-    \ 'D' : [':Git diff', 'Git difference'],
+    \ 'B' : [':Git blame', 'Git blame'],
+    \ 'd' : [':Git diff', 'Git difference'],
+    \ 'C' : [':Git checkout', 'Git checkout'],
+    \ 'b' : [':Git branch', 'Git branch'],
+    \ 'a' : [':Git add', 'Git add'],
+    \ 'c' : [':Git commit', 'Git commit'],
     \}
 
 let g:which_key_map['s'] = {
