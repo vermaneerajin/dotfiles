@@ -1,5 +1,5 @@
 " Welcome message
-echo "¬Ø\\_(„ÉÑ)_/¬Ø"
+echo "¯\\_(ツ)_/¯"
 
 " editor basic setup
 set number
@@ -10,7 +10,7 @@ let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 set list
-set listchars=tab:‚Üí\‚Üí,space:¬∑,nbsp:‚ê£,trail:‚Ä¢,eol:¬∂,precedes:¬´,extends:¬ª
+set listchars=tab:→\→,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Coc settings
@@ -246,3 +246,4 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tpope/vim-fugitive'
 call plug#end()
+
