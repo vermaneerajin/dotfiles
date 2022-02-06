@@ -12,7 +12,7 @@ let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
-let g:coc_global_extensions = ['coc-json', 'coc-git','coc-css', 'coc-angular', 'coc-cmake', 'coc-eslint', 'coc-flutter', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-psalm', 'coc-php-cs-fixer', 'coc-rls', 'coc-solargraph', 'coc-sql', 'coc-xml', 'coc-rust-analyzer', 'coc-phpls', 'coc-sh']
+let g:coc_global_extensions = ['coc-json', 'coc-git','coc-css', 'coc-angular', 'coc-cmake', 'coc-eslint', 'coc-flutter', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-psalm', 'coc-php-cs-fixer', 'coc-rls', 'coc-solargraph', 'coc-sql', 'coc-xml', 'coc-rust-analyzer', 'coc-phpls', 'coc-sh', 'coc-lists', 'coc-yaml']
 set list
 set listchars=tab:→\→,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -61,7 +61,7 @@ else
 endif
 
 " color scheme
-colorscheme PaperColor
+colorscheme gruvbox
 set background=dark
 
 " leader and keybindings
@@ -119,6 +119,7 @@ let g:which_key_map['j'] = {
     \ 't' : ['<Plug>(coc-type-definition)<cr>', 'goto-type-definition'],
     \ 'r' : ['<Plug>(coc-references)<cr>', 'goto-references'],
     \ 'i' : ['<Plug>(coc-implementation)<cr>', 'goto-implementation'],
+    \ 'p' : ['<C-o><cr>', 'jump-previous'],
     \}
 
 let g:which_key_map['g'] = {
