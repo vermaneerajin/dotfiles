@@ -12,7 +12,7 @@ let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
-let g:coc_global_extensions = ['coc-json', 'coc-git','coc-css', 'coc-angular', 'coc-cmake', 'coc-eslint', 'coc-flutter', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-psalm', 'coc-php-cs-fixer', 'coc-rls', 'coc-solargraph', 'coc-sql', 'coc-xml', 'coc-rust-analyzer', 'coc-phpls', 'coc-sh', 'coc-lists', 'coc-yaml']
+let g:coc_global_extensions = ['coc-json', 'coc-git','coc-css', 'coc-angular', 'coc-cmake', 'coc-eslint', 'coc-flutter', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-psalm', 'coc-php-cs-fixer', 'coc-rls', 'coc-solargraph', 'coc-sql', 'coc-xml', 'coc-rust-analyzer', 'coc-phpls', 'coc-sh', 'coc-lists', 'coc-yaml', 'coc-explorer']
 set list
 set listchars=tab:→\→,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
