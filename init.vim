@@ -7,12 +7,17 @@ set relativenumber
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 set termencoding=utf-8
+
+" set column highlight
+highlight ColorColumn ctermbg=gray
+set colorcolumn=80
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
-let g:coc_global_extensions = ['coc-json', 'coc-git','coc-css', 'coc-angular', 'coc-cmake', 'coc-eslint', 'coc-flutter', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-psalm', 'coc-php-cs-fixer', 'coc-rls', 'coc-solargraph', 'coc-sql', 'coc-xml', 'coc-rust-analyzer', 'coc-phpls', 'coc-sh', 'coc-lists', 'coc-yaml', 'coc-explorer']
+let g:coc_global_extensions = ['coc-json', 'coc-git','coc-css', 'coc-angular', 'coc-cmake', 'coc-eslint', 'coc-flutter', 'coc-go', 'coc-html', 'coc-java', 'coc-markdownlint', 'coc-psalm', 'coc-php-cs-fixer', 'coc-rls', 'coc-solargraph', 'coc-sql', 'coc-xml', 'coc-rust-analyzer', 'coc-phpls', 'coc-sh', 'coc-lists', 'coc-yaml', 'coc-explorer', 'coc-tsserver']
 set list
 set listchars=tab:→\→,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -61,8 +66,8 @@ else
 endif
 
 " color scheme
-colorscheme gruvbox
-set background=dark
+colorscheme papercolor
+set background=light
 
 " leader and keybindings
 let g:mapleader = "\<Space>" 
@@ -250,4 +255,5 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tpope/vim-fugitive'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
